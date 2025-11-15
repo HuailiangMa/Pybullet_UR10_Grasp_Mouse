@@ -12,18 +12,25 @@ Pybullet_UR10_Grasp_Mouse/
 ├── test.py
 ├── ur10_pybullet_sim_env.py
 ├── assets/
-│   ├── robot.urdf
-│   ├── mouse.obj
-│   ├── mousepad.obj
-│   ├── textures/
-│   ├── trajectories/
-│   ├── gripper_cmd/
-│   └── initial_pose/
+│   ├── gripper/           # 加载 urdf 使用
+│   ├── mouse_mesh/        # 鼠标 mesh 文件 
+│   ├── mouse_pad_mesh/    # 鼠标垫 mesh 文件
+│   ├── ur10/              # 机械臂 mesh 文件
+│   ├── mouse_pad_pose.txt 
+│   ├── mouse_pose.txt
+│   ├── robot.urdf         # UR10机械臂带夹爪的 urdf 文件
+│   ├── ur10_grasp_mouse_trajectory1.npy
+│   ├── ur10_gripper_cmd1.npy
+│   ├── ur10_gripper_cmd2.npy
+│   └── ur10_place_mouse_trajectory2.npy
 └── ur_pkg/
-    ├── forward_kinematics.py
-    ├── inverse_kinematics.py
-    └── utils/
-``` 
+    ├── __init__.py
+    ├── ur10_inverse.py
+    ├── ur10_kin_inverse.py
+    ├── ur10_move.py
+    └── ur10_pybullet_inverse.py
+```
+
 ### 📌 **主要文件说明**
 ---
 
