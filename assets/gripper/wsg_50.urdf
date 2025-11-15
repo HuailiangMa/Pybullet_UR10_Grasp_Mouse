@@ -1,0 +1,194 @@
+<?xml version="1.0" ?>
+<robot name="wsg50_with_gripper">
+  <joint name="wsg50_with_gripper__base_joint" type="prismatic">
+    <parent link="wsg50_with_gripper__world"/>
+    <child link="wsg50_with_gripper__base_link"/>
+    <origin xyz="0  0  0.7" rpy="3.14 0   0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.5" upper="10.0" effort="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="wsg50_with_gripper__base_joint_motor" type="prismatic">
+    <parent link="wsg50_with_gripper__base_link"/>
+    <child link="wsg50_with_gripper__motor"/>
+    <origin xyz="0   0   0.03" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.055" upper="0.001" effort="10.0" velocity="10.0"/>
+  </joint>
+  <joint name="wsg50_with_gripper__motor_left_hinge_joint" type="revolute">
+    <parent link="wsg50_with_gripper__motor"/>
+    <child link="wsg50_with_gripper__left_hinge"/>
+    <origin xyz="0   0   0.01" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-20.0" upper="20.0" effort="10.0" velocity="10.0"/>
+  </joint>
+  <joint name="wsg50_with_gripper__motor_right_hinge_joint" type="revolute">
+    <parent link="wsg50_with_gripper__motor"/>
+    <child link="wsg50_with_gripper__right_hinge"/>
+    <origin xyz="0   0   0.01" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-20.0" upper="20.0" effort="10.0" velocity="10.0"/>
+  </joint>
+  <joint name="wsg50_with_gripper__gripper_left_hinge_joint" type="prismatic">
+    <parent link="wsg50_with_gripper__base_link"/>
+    <child link="wsg50_with_gripper__gripper_left"/>
+    <origin xyz="-0.055  0     0.06" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-0.01" upper="0.05" effort="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="wsg50_with_gripper__gripper_right_hinge_joint" type="prismatic">
+    <parent link="wsg50_with_gripper__base_link"/>
+    <child link="wsg50_with_gripper__gripper_right"/>
+    <origin xyz="0.055 0    0.06" rpy="0      0      3.14159"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-0.01" upper="0.05" effort="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="wsg50_with_gripper__gripper_finger_right" type="fixed">
+    <parent link="wsg50_with_gripper__gripper_right"/>
+    <child link="wsg50_with_gripper__finger_right"/>
+    <origin xyz="-0.007  0     0.085" rpy="0       0      -1.57079"/>
+    <axis xyz="0 0 0"/>
+    <limit lower="0" upper="0" effort="0" velocity="0"/>
+  </joint>
+  <joint name="wsg50_with_gripper__gripper_finger_left" type="fixed">
+    <parent link="wsg50_with_gripper__gripper_left"/>
+    <child link="wsg50_with_gripper__finger_left"/>
+    <origin xyz="-0.007  0     0.085" rpy="0       0      -1.57079"/>
+    <axis xyz="0 0 0"/>
+    <limit lower="0" upper="0" effort="0" velocity="0"/>
+  </joint>
+  <link name="wsg50_with_gripper__world">
+    <inertial>
+      <mass value="0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+  </link>
+  <link name="wsg50_with_gripper__base_link">
+    <inertial>
+      <mass value="1.2"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual name="wsg50_with_gripper__base_link_visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/WSG50_110.stl" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="wsg50_with_gripper__motor">
+    <inertial>
+      <mass value="0.1"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
+    </inertial>
+    <visual name="wsg50_with_gripper__motor_visual">
+      <origin xyz="0   0   0.01" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.02 0.02 0.02"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="wsg50_with_gripper__left_hinge">
+    <inertial>
+      <mass value="0.1"/>
+      <origin xyz="0    0    0.035" rpy="0 0 0"/>
+      <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
+    </inertial>
+    <visual name="wsg50_with_gripper__motor_visual">
+      <origin xyz="-0.03  0    0.01" rpy="0  -1.2  0"/>
+      <geometry>
+        <box size="0.02 0.02 0.07"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="wsg50_with_gripper__right_hinge">
+    <inertial>
+      <mass value="0.1"/>
+      <origin xyz="0    0    0.035" rpy="0 0 0"/>
+      <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
+    </inertial>
+    <visual name="wsg50_with_gripper__motor_visual">
+      <origin xyz="0.03 0   0.01" rpy="0  1.2 0"/>
+      <geometry>
+        <box size="0.02 0.02 0.07"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="wsg50_with_gripper__gripper_left">
+    <inertial>
+      <mass value="0.2"/>
+      <origin xyz="0     0     0.0115" rpy="0 0 0"/>
+      <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
+    </inertial>
+    <visual name="wsg50_with_gripper__gripper_left_visual">
+      <origin xyz="0    0   -0.06" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <visual name="wsg50_with_gripper__gripper_left_fixed_joint_lump__finger_left_visual_1">
+      <origin xyz="0     0    -0.037" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/WSG-FMF.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="wsg50_with_gripper__gripper_right">
+    <inertial>
+      <mass value="0.2"/>
+      <origin xyz="0     0     0.0115" rpy="0 0 0"/>
+      <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
+    </inertial>
+    <visual name="wsg50_with_gripper__gripper_right_visual">
+      <origin xyz="0    0   -0.06" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <visual name="wsg50_with_gripper__gripper_right_fixed_joint_lump__finger_right_visual_1">
+      <origin xyz="0     0    -0.037" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/WSG-FMF.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="wsg50_with_gripper__finger_right">
+    <inertial>
+      <mass value="0.2"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
+    </inertial>
+    <collision name="wsg50_with_gripper__finger_right_collision">
+      <origin xyz="0    0    0.042" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.02 0.02 0.15"/>
+      </geometry>
+    </collision>
+    <visual name="wsg50_with_gripper__finger_right_visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/l_gripper_tip_scaled.stl" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="wsg50_with_gripper__finger_left">
+    <inertial>
+      <mass value="0.2"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
+    </inertial>
+    <collision name="wsg50_with_gripper__finger_left_collision">
+      <origin xyz="0    0    0.042" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.02 0.02 0.15"/>
+      </geometry>
+    </collision>
+    <visual name="wsg50_with_gripper__finger_left_visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/l_gripper_tip_scaled.stl" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>
