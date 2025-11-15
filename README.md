@@ -4,6 +4,7 @@
 本项目提供一个完整的 PyBullet 仿真环境，展示 UR10 机械臂如何抓取鼠标并放置到鼠标垫上。  
 结构清晰、注释完善，适合 **PyBullet 初学者 / 机械臂仿真学习 / 强化学习场景构建**。
 
+详细讲解在CSDN博客中:https://blog.csdn.net/qq_53186375/article/details/154876227?fromshare=blogdetail&sharetype=blogdetail&sharerId=154876227&sharerefer=PC&sharesource=qq_53186375&sharefrom=from_link
 ---
 
 ## 📦 文件结构说明
