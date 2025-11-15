@@ -86,21 +86,23 @@ This project contains clear code structure, detailed comments, and modular desig
 
 ## 📁 Project Structure
 
+```text
 Pybullet_UR10_Grasp_Mouse/
 ├── test.py
 ├── ur10_pybullet_sim_env.py
 ├── assets/
-│ ├── robot.urdf
-│ ├── mouse.obj
-│ ├── mousepad.obj
-│ ├── textures/
-│ ├── trajectories/
-│ ├── gripper_cmd/
-│ └── initial_pose/
+│   ├── robot.urdf
+│   ├── mouse.obj
+│   ├── mousepad.obj
+│   ├── textures/
+│   ├── trajectories/
+│   ├── gripper_cmd/
+│   └── initial_pose/
 └── ur_pkg/
-├── forward_kinematics.py
-├── inverse_kinematics.py
-└── utils/
+    ├── forward_kinematics.py
+    ├── inverse_kinematics.py
+    └── utils/
+``` 
 
 yaml
 复制代码
