@@ -23,7 +23,7 @@ Pybullet_UR10_Grasp_Mouse/
     ├── forward_kinematics.py
     ├── inverse_kinematics.py
     └── utils/
-
+``` 
 ### 📌 **主要文件说明**
 ---
 
@@ -68,7 +68,7 @@ PyBullet 环境配置类，包含：
 
 ```bash
 python3 test.py
----
+``` 
 
 # 🦾 PyBullet UR10 Grasp Mouse (English)
 
