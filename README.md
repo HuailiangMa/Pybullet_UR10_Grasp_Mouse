@@ -1,0 +1,2 @@
+# Pybullet_UR10_Grasp_Mouse
+这是一个Pybullet环境下UR10机械臂的抓取程序,用于抓取一个鼠标放到鼠标垫上,适合初学者学习pybullet控制机械臂使用
